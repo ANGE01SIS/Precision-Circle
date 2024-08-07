@@ -202,7 +202,7 @@ body {
   }
 
   .isTextDificultad {
-    font-size: 6.5em;
+    font-size: 4.5em;
   }
 }
 
@@ -224,9 +224,6 @@ body {
   .difficultCont {
     flex-direction: column;
   }
-  .isTextDificultad {
-    font-size: 4.5em;
-  }
 }
 
 @media (width < 456px) {
@@ -239,6 +236,15 @@ body {
   }
 
   .play-game-button {
-    margin-top: 1em;
+    margin-top: 0.5em;
+  }
+  .isTextDificultad {
+    font-size: 3.5em;
+  }
+}
+
+@media (width < 365px) {
+  .isTextDificultad {
+    font-size: 2.5em;
   }
 }
