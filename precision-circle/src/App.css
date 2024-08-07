@@ -1,42 +1,244 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+* {
+  padding: 0%;
+  margin: 0%;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #141516;
+  min-height: 100vh;
+  overflow: hidden;
+  cursor: crosshair;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+}
+
+.introduction-game {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+.titles-cont {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   text-align: center;
+  flex-direction: column;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.title-game {
+  color: white;
+  font-family: "Pixelify Sans", sans-serif;
+  font-weight: 400;
+  font-size: 3em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  flex-direction: column;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+.isTextSimple,
+.isTextDificultad {
+  position: relative;
+  font-size: 12em;
+  font-weight: 700;
+  line-height: 1.2;
+  color: #fff;
+  letter-spacing: 5px;
+  font-family: "Pixelify Sans", sans-serif;
+}
+
+.isTextSimple::before,
+.isTextDificultad::before,
+.isTextSimple::after,
+.isTextDificultad::after {
+  display: block;
+  content: attr(dataglitch);
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0.8;
+}
+
+.isTextSimple::before,
+.isTextDificultad::before {
+  animation: glitch-color 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both
+    infinite;
+  color: #0ff;
+  z-index: -1;
+}
+
+.isTextSimple::after,
+.isTextDificultad::after {
+  animation: glitch-color 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) reverse both
+    infinite;
+  color: #ff00ff;
+  z-index: -2;
+}
+
+.play-game-button {
+  text-align: center;
+  display: inline-block;
+  margin: 5px;
+  font-weight: bold;
+  padding: 10px 0 10px 10px;
+  background-color: lightgray;
+  text-shadow: -1px -1px black, 1px 1px white;
+  color: gray;
+  font-size: 30pt;
+  font-family: "Press Start 2p";
+  border-radius: 7px;
+  box-shadow: 0 0.2em gray;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.play-game-button:active {
+  box-shadow: none;
+  position: relative;
+  top: 0.2em;
+}
+
+.desactive {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.difficultCont {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-top: -4em;
+  flex-wrap: wrap;
+}
+
+.buttonDificult {
+  text-align: center;
+  display: inline-block;
+  margin: 5px;
+  font-weight: bold;
+  padding: 10px 0 10px 10px;
+  text-shadow: -1px -1px black, 1px 1px white;
+  font-size: 30pt;
+  font-family: "Press Start 2p";
+  border-radius: 7px;
+  cursor: pointer;
+  transition: all 0.3s;
+  position: relative;
+}
+
+.difficultFacilButton {
+  background-color: rgb(28, 242, 0);
+  color: rgb(15, 97, 4);
+  box-shadow: 0 0.2em rgb(15, 97, 4);
+}
+
+.difficultNormalButton {
+  background-color: rgb(254, 242, 2);
+  color: rgb(133, 145, 4);
+  box-shadow: 0 0.2em rgb(133, 145, 4);
+}
+
+.difficultDificilButton {
+  background-color: rgb(254, 2, 2);
+  color: rgb(145, 4, 4);
+  box-shadow: 0 0.2em rgb(145, 4, 4);
+}
+
+.buttonDificult:active {
+  box-shadow: none;
+  position: relative;
+  top: 0.2em;
+}
+
+@keyframes glitch-color {
+  0% {
+    transform: translate(0);
   }
+
+  20% {
+    transform: translate(-3px, 3px);
+  }
+
+  40% {
+    transform: translate(-3px, -3px);
+  }
+
+  60% {
+    transform: translate(3px, 3px);
+  }
+
+  80% {
+    transform: translate(3px, -3px);
+  }
+
   to {
-    transform: rotate(360deg);
+    transform: translate(0);
   }
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
+@media (width < 1111px) {
+  .isTextDificultad {
+    font-size: 9em;
   }
 }
 
-.card {
-  padding: 2em;
+@media (width < 842px) {
+  .isTextDificultad {
+    font-size: 7.5em;
+  }
 }
 
-.read-the-docs {
-  color: #888;
+@media (width < 752px) {
+  .isTextSimple {
+    font-size: 9em;
+  }
+
+  .isTextDificultad {
+    font-size: 6.5em;
+  }
+}
+
+@media (width < 627px) {
+  .isTextDificultad {
+    font-size: 5.5em;
+  }
+}
+
+@media (width < 573px) {
+  .isTextSimple {
+    font-size: 7em;
+  }
+
+  .title-game {
+    font-size: 2.5em;
+  }
+
+  .difficultCont {
+    flex-direction: column;
+  }
+  .isTextDificultad {
+    font-size: 4.5em;
+  }
+}
+
+@media (width < 456px) {
+  .isTextSimple {
+    font-size: 5em;
+  }
+
+  .title-game {
+    font-size: 2em;
+  }
+
+  .play-game-button {
+    margin-top: 1em;
+  }
 }
